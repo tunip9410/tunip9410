@@ -1,4 +1,5 @@
 import React from "react";
+import Product from "../modules/product";
 import styled from "styled-components";
 
 const MainBackgroundImage = require("../images/sunset.png")
@@ -31,6 +32,7 @@ function Main() {
                 <img src={TunipLogo} alt="tunip logo" width={"140px"}/>
                 <h1>tunip</h1>
             </MainLogoLayer>
+            <Product/>
         </MainPage>
     )
 }

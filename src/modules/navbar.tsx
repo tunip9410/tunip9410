@@ -29,7 +29,7 @@ const NavItemLayer = styled.div`
 `
 
 const NavItem = styled.a`
-    margin: 0 20px;
+    margin: 0 30px;
 `
 
 function Navbar() {
@@ -42,6 +42,7 @@ function Navbar() {
             <NavItemLayer>
                 <NavItem>Home</NavItem>
                 <NavItem>Contact us</NavItem>
+                <NavItem>Products</NavItem>
             </NavItemLayer>
         </NavbarLayer>
     )
