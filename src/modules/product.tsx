@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {useNavigate} from "react-router-dom";
 
 const LandIcon = require("../images/land-logo-white.png")
 const ChatIcon = require("../images/chat-logo-white.png")
@@ -8,7 +9,7 @@ const PadIcon = require("../images/pad-logo-white.png")
 const ProductLayer = styled.div`
     display: flex;
     position: absolute;
-    bottom: 150px;
+    bottom: 120px;
 `
 
 const ProductIcon = styled.a`
@@ -23,9 +24,11 @@ const ProductIcon = styled.a`
 `
 
 function Product() {
+    const navigate = useNavigate()
+
     return (
         <ProductLayer>
-            <ProductIcon>
+            <ProductIcon onClick={() => navigate("/land")}>
                 <img src={LandIcon} alt="land icon" width={"50px"}/>
                 <h1>Land</h1>
             </ProductIcon>
