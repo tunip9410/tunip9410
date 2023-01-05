@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import Product from "../modules/product";
 
-const BackgroundImage = require("../images/desert.png")
-const LandLogo = require("../images/land-logo-white.png")
+const BackgroundImage = require("../images/night-sky.png")
+const PadLogo = require("../images/pad-logo-white.png")
 
-const LandPage = styled.div`
+const PadPage = styled.div`
     background-image: url(${BackgroundImage});
     background-size: cover;
     height: 100%;
@@ -27,35 +27,35 @@ const LogoLayer = styled.div`
     img {
         width: 170px;
     }
-  
+
     @media screen and (max-width: 850px) {
         h1 {
             font-size: 80px;
         }
     }
-  
+    
     @media screen and (max-width: 770px) {
         h1 {
             margin: 0 20px;
         }
-      
+    
         img {
             width: 150px;
         }
     }
-  
+    
     @media screen and (max-width: 700px) {
         h1 {
             font-size: 60px;
             margin: 0 25px;
         }
     }
-  
+    
     @media screen and (max-width: 610px) {
         img {
             width: 130px;
         }
-      
+    
         h1 {
             font-size: 50px;
             margin: 0 20px;
@@ -73,7 +73,7 @@ const Message = styled.div`
         color: white;
         font-size: 20px;
     }
-  
+
     @media screen and (max-width: 700px) {
         margin: 0;
     }
@@ -88,7 +88,7 @@ const LoginButton = styled.a `
     font-size: 24px;
     border: 3px solid #9af317;
     margin-top: 30px;
-  
+
     @media screen and (max-width: 700px) {
         padding: 10px 35px;
         font-size: 17px;
@@ -96,20 +96,19 @@ const LoginButton = styled.a `
     }
 `
 
-function Land() {
+function Pad() {
     return (
-        <LandPage>
+        <PadPage>
             <LogoLayer>
-                <img src={LandLogo} alt="land logo"/>
-                <h1>tunip land</h1>
+                <img src={PadLogo} alt="land logo"/>
+                <h1>tunip pad</h1>
             </LogoLayer>
             <Message>
-                {/*<p>Faster, Simpler, Better, tunip land</p>*/}
-                <LoginButton href={"https://tunip.land"}>Open land</LoginButton>
+                <LoginButton href={"https://pad.tunip.io"}>Open pad</LoginButton>
             </Message>
             <Product dark={false}/>
-        </LandPage>
+        </PadPage>
     )
 }
 
-export default Land
+export default Pad

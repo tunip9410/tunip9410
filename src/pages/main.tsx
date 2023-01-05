@@ -8,6 +8,7 @@ const TunipLogo = require("../images/tunip-logo.png")
 const MainPage = styled.div`
     background-image: url(${MainBackgroundImage});
     background-size: cover;
+    background-position: center;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -32,7 +33,7 @@ function Main() {
                 <img src={TunipLogo} alt="tunip logo" width={"140px"}/>
                 <h1>tunip</h1>
             </MainLogoLayer>
-            <Product/>
+            <Product dark={false}/>
         </MainPage>
     )
 }
