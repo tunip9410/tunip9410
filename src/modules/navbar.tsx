@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
+import ProductModal from "../modals/productModal";
 
 const TunipLogo = require("../images/tunip-logo.png")
 
@@ -33,6 +34,10 @@ const NavbarLayer = styled.div`
     @media screen and (max-width: 630px) {
         margin: 30px 50px;
     }
+  
+    @media screen and (max-width: 560px) {
+        margin: 20px;
+    }
 `
 
 const LogoLayer = styled.div`
@@ -41,6 +46,20 @@ const LogoLayer = styled.div`
   
     h1 {
         margin: 0 15px;
+    }
+  
+    img {
+        width: 50px;
+    }
+  
+    @media screen and (max-width: 560px) {
+        h1 {
+            font-size: 30px;
+        }
+        
+        img {
+            width: 40px;
+        }
     }
 `
 
@@ -69,22 +88,105 @@ const Hamburger = styled.a`
     @media screen and (min-width: 1000px) {
         display: none;
     }
+  
+    @media screen and (max-width: 560px) {
+        div {
+            width: 32px;
+            height: 4px;
+            margin: 5px 0;
+        }
+    }
 `
 
+const MenuLayer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+`
+
+const MenuOverlay = styled.div`
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 10001;
+    top: 0;
+    left: 0;
+`
+
+const MenuContentLayer = styled.div`
+    width: 280px;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 10001;
+    right: 0;
+    top: 0;
+    box-shadow: 10px 0 20px #00000070;
+    padding-top: 30px;
+`
+
+const MenuItemLayer = styled.div`
+    color: black;
+    margin: 30px;
+    
+    a {
+        font-size: 30px;
+    }
+`
+
+interface MenuProps {
+    showMenu :boolean,
+    setShowMenu :(active :boolean) => void,
+    setShowProductModal :(active :boolean) => void
+}
+
+function Menu({showMenu, setShowMenu, setShowProductModal} :MenuProps) {
+    const navigate = useNavigate()
+
+    if (showMenu) {
+        return (
+            <MenuLayer>
+                <MenuOverlay onClick={() => setShowMenu(false)}/>
+                <MenuContentLayer>
+                    <MenuItemLayer>
+                        <a onClick={() => {navigate("/"); setShowMenu(false)}}>Home</a>
+                    </MenuItemLayer>
+                    <MenuItemLayer>
+                        <a>Contact us</a>
+                    </MenuItemLayer>
+                    <MenuItemLayer>
+                        <a onClick={() => {setShowProductModal(true); setShowMenu(false)}}>Products</a>
+                    </MenuItemLayer>
+                </MenuContentLayer>
+            </MenuLayer>
+        )
+    } else {
+        return null
+    }
+}
+
 function Navbar() {
+    const [showMenu, setShowMenu] = useState<boolean>(false)
+    const [showProductModal, setShowProductModal] = useState<boolean>(false)
     const navigate = useNavigate()
 
     return (
         <NavbarLayer>
+            <Menu showMenu={showMenu} setShowMenu={setShowMenu} setShowProductModal={setShowProductModal}/>
+            <ProductModal showProductModal={showProductModal} setShowProductModal={setShowProductModal}/>
             <LogoLayer>
-                <img src={TunipLogo} alt="tunip logo" width={"50px"}/>
+                <img src={TunipLogo} alt="tunip logo"/>
                 <h1>tunip</h1>
             </LogoLayer>
             <NavItemLayer>
                 <NavItem onClick={() => navigate("/")}>Home</NavItem>
                 <NavItem>Contact us</NavItem>
                 <NavItem>Products</NavItem>
-                <Hamburger>
+                <Hamburger onClick={() => setShowMenu(true)}>
                     <div/>
                     <div/>
                     <div/>

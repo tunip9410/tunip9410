@@ -22,6 +22,10 @@ const ProductLayer = styled.div`
     @media screen and (max-width: 1030px) {
         display: none;
     }
+  
+    @media screen and (max-height: 1000px) {
+        bottom: 50px;
+    }
 `
 
 const ProductIcon = styled.a`

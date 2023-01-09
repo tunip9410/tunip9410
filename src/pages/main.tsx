@@ -3,6 +3,7 @@ import Product from "../modules/product";
 import styled from "styled-components";
 
 const MainBackgroundImage = require("../images/sunset.png")
+const MobileBackgroundImage = require("../images/sunset-mobile.png")
 const TunipLogo = require("../images/tunip-logo.png")
 
 const MainPage = styled.div`
@@ -13,6 +14,10 @@ const MainPage = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  
+    @media screen and (max-width: 590px) {
+        background-image: url(${MobileBackgroundImage});
+    }
 `
 
 const MainLogoLayer = styled.div`
@@ -24,13 +29,28 @@ const MainLogoLayer = styled.div`
         margin: 0 40px;
         color: white;
     }
+  
+    img {
+        width: 140px;
+    }
+  
+    @media screen and (max-width: 560px) {
+        h1 {
+            font-size: 70px;
+            margin: 0 20px;
+        }
+      
+        img {
+            width: 100px;
+        }
+    }
 `
 
 function Main() {
     return (
         <MainPage>
             <MainLogoLayer>
-                <img src={TunipLogo} alt="tunip logo" width={"140px"}/>
+                <img src={TunipLogo} alt="tunip logo"/>
                 <h1>tunip</h1>
             </MainLogoLayer>
             <Product dark={false}/>

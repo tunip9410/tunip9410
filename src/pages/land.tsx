@@ -3,15 +3,21 @@ import styled from "styled-components";
 import Product from "../modules/product";
 
 const BackgroundImage = require("../images/desert.png")
+const MobileBackgroundImage = require("../images/desert-mobile.png")
 const LandLogo = require("../images/land-logo-white.png")
 
 const LandPage = styled.div`
     background-image: url(${BackgroundImage});
     background-size: cover;
+    background-position: center;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  
+    @media screen and (max-width: 590px) {
+        background-image: url(${MobileBackgroundImage});
+    }
 `
 
 const LogoLayer = styled.div`
@@ -59,6 +65,17 @@ const LogoLayer = styled.div`
         h1 {
             font-size: 50px;
             margin: 0 20px;
+        }
+    }
+  
+    @media screen and (max-width: 500px) {
+        h1 {
+            font-size: 45px;
+            margin: 0 10px;
+        }
+      
+        img {
+            width: 100px;
         }
     }
 `

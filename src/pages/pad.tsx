@@ -61,6 +61,17 @@ const LogoLayer = styled.div`
             margin: 0 20px;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        h1 {
+            font-size: 45px;
+            margin: 0 10px;
+        }
+        
+        img {
+            width: 100px;
+        }
+    }  
 `
 
 const Message = styled.div`
