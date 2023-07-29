@@ -67,7 +67,7 @@ function Product({dark} :ProductProp) {
                     <img src={DarkChatIcon} alt="land icon" width={"50px"}/>
                     <h1>Chat</h1>
                 </DarkProductIcon>
-                <DarkProductIcon>
+                <DarkProductIcon onClick={() => navigate("/pad")}>
                     <img src={DarkPadIcon} alt="land icon" width={"50px"}/>
                     <h1>Pad</h1>
                 </DarkProductIcon>

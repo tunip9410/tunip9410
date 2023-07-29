@@ -68,7 +68,7 @@ function ProductModal({showProductModal, setShowProductModal} :ProductModalProps
                 <ModalOverlay onClick={() => setShowProductModal(false)}/>
                 <ModalLayer>
                     <h1>Products</h1>
-                    <ProductItem onClick={() => {navigate("/pad"); setShowProductModal(false)}}>
+                    <ProductItem onClick={() => {navigate("/land"); setShowProductModal(false)}}>
                         <img src={DarkLandIcon} alt="land icon" width={"50px"}/>
                         <h2>Land</h2>
                     </ProductItem>
